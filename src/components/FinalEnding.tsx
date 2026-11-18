@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { FairytaleCastle } from './RoyalIllustrations';
-import { HeartTeddyBear, RoyalRibbonKitten } from './CuteCharacters';
+import { CuteCharacter } from './CuteCharacter';
 
 interface FinalEndingProps {
   onRevisit: () => void;
@@ -41,11 +41,11 @@ export const FinalEnding: React.FC<FinalEndingProps> = ({ onRevisit }) => {
           className="relative w-64 sm:w-80 mx-auto mb-6 sm:mb-8"
         >
           <FairytaleCastle className="w-full h-auto drop-shadow-[0_16px_40px_rgba(8,4,18,0.7)]" />
-          <div className="absolute -bottom-1 -left-2 w-20 h-20">
-            <HeartTeddyBear variant="lavender" />
+          <div className="absolute -bottom-2 -left-3 w-20 h-20 sm:w-24 sm:h-24">
+            <CuteCharacter variant="teddy" className="w-full h-full" />
           </div>
-          <div className="absolute -bottom-1 -right-2 w-20 h-20">
-            <RoyalRibbonKitten />
+          <div className="absolute -bottom-2 -right-3 w-20 h-20 sm:w-24 sm:h-24">
+            <CuteCharacter variant="kitten" className="w-full h-full" />
           </div>
         </motion.div>
 

@@ -1,20 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { FairytaleCastle } from './RoyalIllustrations';
-import { BouquetKitty } from './CuteCharacters';
+import { CuteCharacter } from './CuteCharacter';
 
 interface RoyalWelcomeProps {
   onNext: () => void;
 }
 
 export const RoyalWelcome: React.FC<RoyalWelcomeProps> = ({ onNext }) => {
-  const [kittyBounce, setKittyBounce] = useState(false);
-
   return (
     <section className="relative z-10 min-h-[100dvh] w-full flex flex-col justify-center px-5 sm:px-8 pt-20 pb-28 max-w-6xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-        {/* Visual Castle + Bouquet Kitty Stage */}
+        {/* Visual Castle + CuteCharacter Companions Stage */}
         <motion.div
           initial={{ opacity: 0, scale: 0.97, y: 14 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -26,15 +24,12 @@ export const RoyalWelcome: React.FC<RoyalWelcomeProps> = ({ onNext }) => {
 
             <FairytaleCastle className="w-full h-auto relative z-10 drop-shadow-[0_18px_38px_rgba(8,4,18,0.65)]" />
 
-            {/* Kawaii White Kitty with Pink Bow, Tiara & Rose Bouquet */}
-            <div className="absolute -bottom-3 right-2 sm:right-6 w-28 h-28 sm:w-34 sm:h-34 z-20">
-              <BouquetKitty
-                isActive={kittyBounce}
-                onClick={() => {
-                  setKittyBounce(true);
-                  window.setTimeout(() => setKittyBounce(false), 900);
-                }}
-              />
+            {/* Fluffy Teddy Bear with Heart & Kitten with Pink Ribbon */}
+            <div className="absolute -bottom-3 left-1 sm:left-4 w-24 h-24 sm:w-28 sm:h-28 z-20">
+              <CuteCharacter variant="teddy" className="w-full h-full" />
+            </div>
+            <div className="absolute -bottom-3 right-1 sm:right-4 w-24 h-24 sm:w-28 sm:h-28 z-20">
+              <CuteCharacter variant="kitten" className="w-full h-full" />
             </div>
           </div>
         </motion.div>

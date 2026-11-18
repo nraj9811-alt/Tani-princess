@@ -173,6 +173,21 @@
   animation: riseMiniHeart 3.4s ease-out infinite;
 }
 
+@keyframes heartPulseSoft {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+.animate-heart-soft {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: heartPulseSoft 2.6s ease-in-out infinite;
+}
+
 /* Subtle paper grain texture for the royal letter */
 .parchment-surface {
   background-color: #fff9f2;
@@ -208,7 +223,8 @@
   .animate-eye-blink,
   .animate-pulse-glow,
   .animate-window-glow,
-  .animate-rise-heart {
+  .animate-rise-heart,
+  .animate-heart-soft {
     animation: none !important;
   }
 }
