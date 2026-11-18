@@ -1,0 +1,214 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #0d071a;
+    color: #fff9f2;
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    background: radial-gradient(circle at 50% 15%, #231345 0%, #140b29 48%, #0a0514 100%);
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-sans);
+}
+
+/* Custom Fairytale Keyframe Animations */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-10px) translateX(4px);
+  }
+}
+
+@keyframes cloudDrift {
+  0% {
+    transform: translateX(-6%);
+  }
+  50% {
+    transform: translateX(6%);
+  }
+  100% {
+    transform: translateX(-6%);
+  }
+}
+
+@keyframes wingFlutter {
+  0%, 100% {
+    transform: scaleX(1) rotate(0deg);
+  }
+  50% {
+    transform: scaleX(0.45) rotate(2deg);
+  }
+}
+
+@keyframes tailSway {
+  0%, 100% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes eyeBlink {
+  0%, 92%, 100% {
+    transform: scaleY(1);
+  }
+  96% {
+    transform: scaleY(0.08);
+  }
+}
+
+@keyframes gentlePulseGlow {
+  0%, 100% {
+    opacity: 0.65;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes windowFlicker {
+  0%, 100% {
+    opacity: 0.85;
+  }
+  45% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.72;
+  }
+}
+
+@keyframes cursorBlink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-140%) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(240%) skewX(-18deg);
+  }
+}
+
+@keyframes riseMiniHeart {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.6);
+  }
+  25% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-28px) scale(1.08);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 5.5s ease-in-out infinite;
+}
+
+.animate-cloud-drift {
+  animation: cloudDrift 28s ease-in-out infinite;
+}
+
+.animate-wing-flutter {
+  transform-origin: center;
+  animation: wingFlutter 0.55s ease-in-out infinite;
+}
+
+.animate-tail-sway {
+  animation: tailSway 3.2s ease-in-out infinite;
+}
+
+.animate-eye-blink {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: eyeBlink 4.6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: gentlePulseGlow 3.6s ease-in-out infinite;
+}
+
+.animate-window-glow {
+  animation: windowFlicker 4.5s ease-in-out infinite;
+}
+
+.animate-cursor-blink {
+  animation: cursorBlink 0.9s steps(2, start) infinite;
+}
+
+.animate-rise-heart {
+  animation: riseMiniHeart 3.4s ease-out infinite;
+}
+
+/* Subtle paper grain texture for the royal letter */
+.parchment-surface {
+  background-color: #fff9f2;
+  background-image:
+    radial-gradient(at 15% 15%, rgba(247, 184, 208, 0.14) 0px, transparent 55%),
+    radial-gradient(at 85% 85%, rgba(245, 215, 142, 0.16) 0px, transparent 55%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(130, 92, 110, 0.015) 0px,
+      rgba(130, 92, 110, 0.015) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+}
+
+/* Safe area padding helper for iOS Safari / Instagram in-app browser */
+.pb-safe {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+
+.pt-safe {
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-float-slow,
+  .animate-cloud-drift,
+  .animate-wing-flutter,
+  .animate-tail-sway,
+  .animate-eye-blink,
+  .animate-pulse-glow,
+  .animate-window-glow,
+  .animate-rise-heart {
+    animation: none !important;
+  }
+}
